@@ -1,0 +1,171 @@
+ <!-- 
+    1. Сделать собственные примеры методов применяемых для массивов.
+
+    2. Создать функцию для нахождения минимального и максимального элемента массива getMinAndMax(array).
+     Результат должен выводиться в консоль.
+
+    3. Определить элементы массива и вывести их значения, индексы которых лежит в указанном пределе. Предел вводит пользователь.
+
+    4. Отсортировать массив на 10 чисел в порядке возростания. Значения принимаются от пользователя. Сортировка осушествляется методом sort().
+    
+    5. Создать программу, выполняющую вставку элемента в массив после элемента, значение которого укажет пользователь.
+
+    6. Необходимо получить предпоследний элемент из массива month и вывести его на экран. 
+    var month = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
+
+    7. Создать два произвольных массива: один массив - любимая спортивная команда / модели автомобилей / города, во втором - количество игроков в команде / объем двигателя / количество жителей в городе. Объединить данные из двух массивов и вывести их в одну строку.  -->
+    
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+       <meta charset="UTF-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Java Script. Arrays</title>
+       <script type="text/javascript">
+    
+        //Завдання 1//
+        document.write("1. Metod Join <br>");
+        var cats = ["red", "grey", "black"];
+        document.write(cats + "<br>");
+        var newCats = cats.join(", ");
+        document.write(newCats + ".");
+
+        document.write("<br><br>2. Metod Concat <br>");
+        var cities = [" Kyiv", " Luhansk", " Odesa"];
+        var countries = [" Ukraine", " Turkey"];
+        var citiesCountries = cities.concat(countries);
+        document.write(citiesCountries + "<br>");
+        var input =" " + prompt("Which country do you live in?");
+        document.write(citiesCountries.concat(input));
+
+        document.write("<br><br>3. Metod Reverse <br>");
+        document.write(cities + "<br>");
+        document.write(cities.reverse());
+
+        document.write("<br><br>4. Metod Slice <br>");
+        var products = [" sausage", " meat", " milk", " fish", " chicken"];
+        document.write(products + "<br>");
+        document.write(products.slice(1) + "<br>");
+        document.write(products.slice(0, 3));
+
+        document.write("<br><br>5. Metod Splice <br>");
+        document.write(products + "<br>");
+        var del = products.splice(3, 4);
+        document.write("Deleted items: " + del + "<br>");
+        products.splice(1, 2, " banana", " water", " honey");
+        document.write(products);
+
+        document.write("<br><br>6. Metod Sort <br>");
+        products.sort();
+        document.write(products + "<br>");
+        var numbers = [9, 1, 3, 2, 7];
+        numbers.sort();
+        document.write(numbers);
+
+        document.write("<br><br>7. Metod Push <br>");
+        document.write(products + "<br>");
+        document.write(products.length + "<br>");
+        var newLength = products.push(" chocolate");
+        document.write(`Products: ${products}, array length: ${newLength}`);
+
+        document.write("<br><br>8. Metod Pop <br>");
+        document.write(numbers + "<br>");
+        var deletedNumber = numbers.pop();
+        document.write(`Deleted item: ${deletedNumber}, new array: ${numbers}`);
+
+        document.write("<br><br>9. Unshift <br>");
+        var vegetables = [" cucumber", " tomato", " cabbage"];
+        document.write(`Array: ${vegetables}, array length: ${vegetables.length}<br>`);
+        var newVegLength = vegetables.unshift(" pumpkin", " melon");
+        document.write(`New array: ${vegetables}, new array length: ${newVegLength}`);
+
+        document.write("<br><br>10. Shift <br>");
+        document.write(`Array: ${vegetables}, array length: ${vegetables.length}<br>`);
+        var firstItemDel = vegetables.shift();
+        document.write(`New array: ${vegetables}, deleted item: ${firstItemDel}, array length: ${vegetables.length}`);
+
+        //Завдання 2 не проходили//
+
+        //Завдання 3//
+        document.write("<br><br>Задание 3<br>");
+        var array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        var firstValue = +prompt("C какого элемента начинаем массив? Введите, пожалуйста, значение от 0 до 10.");
+        var lastValue= +prompt("Каким элементом заканчиваем массив? Введите, пожалуйста, значение от 0 до 10.");
+        if(firstValue < 0 || lastValue > 10 || firstValue > lastValue)
+        {
+         document.write("Вы ввели некорректные значения!");
+        }
+        else
+        {
+        for(var i = firstValue; i <= lastValue; i++)
+        {
+         document.write(array[i] + ", ");
+        }
+        }
+
+
+        //Завдання 4//
+
+        document.write("<br><br>Задание 4<br>");
+      
+        var numbers = new Array(10);
+        for(var i = 0; i <10; i++)
+        {
+         numbers[i] = +prompt(`Введите ${i+1} число массива`);
+        }
+        document.write(numbers.sort());
+
+         //Завдання 5//
+         document.write("<br><br>Задание 5<br>");
+         var cars = ["Mazda", "Toyota", "Volkswagen", "BMW"];
+         var index = +prompt("После какого элемента вводим новый? Введите число от 0 до 4");
+         var newItem = prompt("Введите новую марку машины в массив!");
+         cars.splice(index, 0, newItem);
+         if(index < 0 || index > 4)
+         {
+            document.write("Вы ввели неверное значение!");
+         }
+         else
+         {
+            document.write(cars.join(", "));
+         }
+
+         //Завдання 6//
+         document.write("<br><br>Задание 6<br>");
+         var month = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+         document.write("1 cпособ <br>");
+         document.write(month[10]);
+         document.write("<br>2 cпособ <br>");
+         document.write(month[month.length-2]);
+         document.write("<br>3 cпособ <br>");
+         var preLast = month.slice(-2, -1);
+         document.write(preLast);
+         document.write("<br>4 cпособ <br>");
+         month.pop();
+         document.write(month.pop());
+
+         //Завдання 7//
+         document.write("<br><br>Задание 7<br>");
+         var cities = ["Kiev", "Antalya", "Valencia", "Rome"];
+         var countries = ["Ukraine", "Turkey", "Spain", "Italy"];
+         var newArray = [];
+         for(var i = 0; i < cities.length; i++)
+         {
+            newArray[i] = cities[i] + " - " + countries[i] + " ";
+            
+         }
+         document.write(newArray);
+
+
+    
+       
+    </script>
+    </head>
+    
+    <body>
+    
+    </body>
+    
+    </html>
